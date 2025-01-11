@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; }
+        h1 { color: #333; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f4f4f4; }
+    </style>
+</head>
+<body>
+    <h1>Monthly Report</h1>
+    <p>Dear {{ sponsor_name }},</p>
+    <p>Here is the monthly report for your campaigns:</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Campaign Name</th>
+                <th>Pending</th>
+                <th>Accepted</th>
+                <th>Rejected</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for campaign in campaigns %}
+            <tr>
+                <td>{{ campaign.name }}</td>
+                <td>{{ campaign.pending }}</td>
+                <td>{{ campaign.accepted }}</td>
+                <td>{{ campaign.rejected }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p>Thank you for using our platform!</p>
+</body>
+</html>
